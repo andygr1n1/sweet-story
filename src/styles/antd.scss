@@ -1,0 +1,11 @@
+.ant-drawer-header,
+.ant-drawer-wrapper-body {
+    @apply tw-bg-gray-900 tw-text-white;
+}
+
+.ant-drawer-title {
+    @apply tw-text-white tw-select-none;
+}
+.ant-drawer-close {
+    @apply tw-text-orange-600 hover:tw-text-red-800;
+}
