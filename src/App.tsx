@@ -1,18 +1,17 @@
 import { Drawer, Empty } from 'antd'
-import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { TopNav } from './components/TopNav'
 import sweetLogo from './images/sweet_logo.svg'
 import {
     closeShopMenuView,
     closeShopMenuViewPayload,
 } from './redux/actions/toggleShopMenuView.action'
-import { root$ } from './redux/rootStore'
-import { shopMenuView } from './redux/selectors/shopMenuView.selector'
+import { IRootState, root$ } from './redux/rootStore'
 
 function App() {
     const rootStore = root$
 
-    const { shop_menu_view } = rootStore.getState()
+    const selectShopMenuView = useSelector((state: IRootState) => state.shop_menu_view)
 
     const onClose = () => {
         rootStore.dispatch(closeShopMenuView(closeShopMenuViewPayload))
@@ -29,7 +28,7 @@ function App() {
                     title="Shop"
                     placement="right"
                     onClose={onClose}
-                    visible={shopMenuView}
+                    visible={selectShopMenuView}
                     getContainer={false}
                     style={{ position: 'absolute' }}
                     className="!tw-bg-slate-900"

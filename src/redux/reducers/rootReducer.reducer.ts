@@ -9,7 +9,6 @@ export const rootState = {
 }
 
 export const rootReducer = (state = rootState, action: IReduxAction) => {
-    console.log('here!', action.type, state)
     switch (action.type) {
         case toggleShopMenuViewType:
             return { ...state, shop_menu_view: !state.shop_menu_view }
