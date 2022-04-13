@@ -2,22 +2,34 @@ import { Drawer, Empty } from 'antd'
 import { useState } from 'react'
 import { TopNav } from './components/TopNav'
 import sweetLogo from './images/sweet_logo.svg'
+import {
+    closeShopMenuView,
+    closeShopMenuViewPayload,
+} from './redux/actions/toggleShopMenuView.action'
+import { root$ } from './redux/rootStore'
+import { shopMenuView } from './redux/selectors/shopMenuView.selector'
 
 function App() {
-    const [visible, setVisible] = useState(false)
+    const rootStore = root$
+
+    const { shop_menu_view } = rootStore.getState()
+
+    const onClose = () => {
+        rootStore.dispatch(closeShopMenuView(closeShopMenuViewPayload))
+    }
 
     return (
         <>
             <div className="App">
-                <TopNav openShopMenu={() => setVisible(!visible)} />
+                <TopNav />
             </div>
 
             <div className="tw-relative  tw-flex tw-flex-auto tw-h-full tw-w-full tw-overflow-x-hidden">
                 <Drawer
                     title="Shop"
                     placement="right"
-                    onClose={() => setVisible(false)}
-                    visible={visible}
+                    onClose={onClose}
+                    visible={shopMenuView}
                     getContainer={false}
                     style={{ position: 'absolute' }}
                     className="!tw-bg-slate-900"
