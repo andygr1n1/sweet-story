@@ -6,12 +6,12 @@ import {
     closeShopMenuView,
     closeShopMenuViewPayload,
 } from './redux/actions/toggleShopMenuView.action'
-import { IRootState, root$ } from './redux/rootStore'
+import { TRootState, root$ } from './redux/rootStore'
 
 function App() {
     const rootStore = root$
 
-    const selectShopMenuView = useSelector((state: IRootState) => state.shop_menu_view)
+    const selectShopMenuView = useSelector((state: TRootState) => state.shop_menu_view)
 
     const onClose = () => {
         rootStore.dispatch(closeShopMenuView(closeShopMenuViewPayload))
