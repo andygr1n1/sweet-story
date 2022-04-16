@@ -1,21 +1,22 @@
-import { IReduxAction } from '../interfaces'
+// import { IReduxAction } from '../interfaces'
+import { Action } from '@reduxjs/toolkit';
 
 export const toggleShopMenuViewType = 'shopMenu/toggleView'
 export const toggleShopMenuViewPayload = 'toggleShopMenuView'
 
-export const toggleShopMenuView = (text: string): IReduxAction => {
+export const toggleShopMenuView = (text: string): Action => {
     return {
         type: toggleShopMenuViewType,
-        payload: text,
+        // payload: text,
     }
 }
 
 export const closeShopMenuViewType = 'shopMenu/closeView'
 export const closeShopMenuViewPayload = 'closeShopMenuView'
 
-export const closeShopMenuView = (text: string): IReduxAction => {
+export const closeShopMenuView = (text: string): Action => {
     return {
         type: closeShopMenuViewType,
-        payload: text,
+        // payload: text,
     }
 }
